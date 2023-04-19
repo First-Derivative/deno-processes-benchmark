@@ -1,4 +1,5 @@
-import { checkBrewBash, checkBrewTS } from "./checkbrewinstall.ts";
+import { checkBrewTS } from "./checkbrew.ts";
+import { checkBrewBash } from "./playground/checkbrewbash.ts";
 
 Deno.bench("Typescript Run", () => {
   checkBrewTS("gh");

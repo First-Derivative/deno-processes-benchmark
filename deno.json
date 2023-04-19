@@ -4,7 +4,7 @@
   },
 
   "tasks": {
-    "start": "deno run --allow-env --allow-read --allow-run checkbrewinstall.ts",
-    "build": "deno compile --allow-env --allow-read --allow-run -o build/deno-land checkbrewinstall.ts"
+    "start": "deno run --allow-env --allow-read --allow-run --lock=deno.lock checkbrew.ts",
+    "build": "deno compile --allow-env --allow-read --allow-run --lock=deno.lock -o build/checkbrew checkbrew.ts"
   }
 }
