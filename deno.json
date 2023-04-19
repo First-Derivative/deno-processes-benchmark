@@ -1,0 +1,10 @@
+{
+  "imports": {
+    "std/": "https://deno.land/std@0.184.0/"
+  },
+
+  "tasks": {
+    "start": "deno run --allow-env --allow-read --allow-run checkbrewinstall.ts",
+    "build": "deno compile --allow-env --allow-read --allow-run -o build/deno-land checkbrewinstall.ts"
+  }
+}
