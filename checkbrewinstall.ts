@@ -1,5 +1,5 @@
 #!/usr/bin/env deno run --allow-all
-import { parse } from "std/flags/mod.ts";
+import { parse } from "https://deno.land/std@0.184.0/flags/mod.ts";
 
 interface Arguments {
   p: string;
@@ -14,7 +14,7 @@ export const checkBrewTS = async (defaultArg?: string) => {
     if (inputArgs.package) inputArgs.p === inputArgs.package;
     else if (defaultArg) inputArgs.p === defaultArg;
     else {
-      console.log("missing -p package input", inputArgs);
+      console.log('missing -p "package"');
       return null;
     }
 
