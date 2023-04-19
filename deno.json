@@ -5,6 +5,12 @@
 
   "tasks": {
     "start": "deno run --allow-env --allow-read --allow-run --lock=deno.lock checkbrew.ts",
-    "build": "deno compile --allow-env --allow-read --allow-run --lock=deno.lock -o build/checkbrew checkbrew.ts"
+    "build": "deno compile --allow-env --allow-read --allow-run --lock=deno.lock -o build/checkbrew checkbrew.ts",
+    "bench:speedtest": "deno bench --allow-run speed-tests/cmd_vs_run_bench.ts",
+    "build-speedtest:brew": "deno compile --allow-run --lock=deno.lock -o build/run_brew speed-tests/run.ts brew && deno compile --allow-run --lock=deno.lock -o build/cmd_brew speed-tests/cmd.ts brew",
+    "build-speedtest:curl": "deno compile --allow-run --lock=deno.lock -o build/run_curl speed-tests/run.ts curl && deno compile --allow-run --lock=deno.lock -o build/cmd_curl speed-tests/cmd.ts curl",
+    "bench:speedtest:results": "deno bench --allow-run speed-tests/cmd_vs_run_bench.ts > speed-tests-results/cmd_vs_run_bench_results.ts",
+    "build-speedtest:brew:results": "hyperfine --warmup 3 './build/run_brew' './build/cmd_brew' > speed-tests-results/executables_brew.txt",
+    "build-speedtest:curl:results": "hyperfine --warmup 3 './build/run_curl' './build/cmd_curl'> speed-tests-results/executables_curl.txt"
   }
 }
