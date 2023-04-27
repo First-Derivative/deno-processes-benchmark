@@ -28,11 +28,12 @@ From what I can tell both commands spawn a subprocess executing whatever command
 ### Comprehensive Benchmarking
 The built in `deno bench` command is super handy and nifty for performance testing your functions. The testing of the `cmd.ts` and `run.ts` test the perfomance of running the files in the deno runtime via deno run -this was made easy by running the task bench:speedtest (`deno task bench:speedtest`). Then I benchmarked the scripts running as compiled executables via the task build-speedtest:brew and build-speedtest:curl (testing `Deno.command` and `Deno.run` on a curl and brew execution) `deno task build-speedtest:curl`.
 <br/>
+<br/>
 However upon inspection of the results there seems to be no clear performance difference between the executable and the function. Upon further reading of documentation and comments I have learned that this is because deno isnt compiling into system-specific machine which runs on the programming language of the CPU's intstructions set. Instead it bundles all the javascript into a single script which is then turned into an executable which still runs in the deno runtime environment. Therefore it makes sense that there is little to no performance gains as it is still running in the same environment (in the same way if you like).
+<br/>
 <br/>
 [Source](https://github.com/denoland/deno/issues/14872#issuecomment-1156483162)
 
 ## Future improvements
 * prompt if package not-installed -> `install ? y/n`
 * better software distribution via deno install task script
-* 
