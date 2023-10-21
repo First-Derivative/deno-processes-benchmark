@@ -1,0 +1,11 @@
+Benchmark 1: ./build/run_curl
+  Time (mean ± σ):      79.0 ms ±  22.5 ms    [User: 19.2 ms, System: 12.4 ms]
+  Range (min … max):    59.8 ms … 172.4 ms    38 runs
+ 
+Benchmark 2: ./build/cmd_curl
+  Time (mean ± σ):     118.8 ms ±  46.5 ms    [User: 26.2 ms, System: 15.6 ms]
+  Range (min … max):    60.1 ms … 216.1 ms    15 runs
+ 
+Summary
+  './build/run_curl' ran
+    1.50 ± 0.73 times faster than './build/cmd_curl'
